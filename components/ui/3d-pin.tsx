@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 export const PinContainer = ({
   children,
@@ -21,6 +20,11 @@ export const PinContainer = ({
     "translate(-50%,-50%) rotateX(0deg)"
   );
 
+  const handleClick = (e: any) => {
+    e.preventDefault();
+    window.open(href, "_blank");
+  };
+
   const onMouseEnter = () => {
     setTransform("translate(-50%,-50%) rotateX(40deg) scale(0.8)");
   };
@@ -36,7 +40,7 @@ export const PinContainer = ({
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      // href={href || "/"}
+      onClick={handleClick}
     >
       <div
         style={{
